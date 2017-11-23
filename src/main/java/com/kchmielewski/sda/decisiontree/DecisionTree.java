@@ -1,7 +1,7 @@
 package com.kchmielewski.sda.decisiontree;
 
 public interface DecisionTree<Input, Output> {
-    Output ask(Input input);
+    Output proceedWithInput(Input input);
 
     void setYesDecisionTree(DecisionTree<Input, Output> decisionTree);
 

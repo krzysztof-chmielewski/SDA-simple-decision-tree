@@ -20,10 +20,10 @@ public class Main {
         isEven.setYesDecisionTree(new Answer<>("Number is greater than 10"));
 
 
-        System.out.println(root.ask(-5));
-        System.out.println(root.ask(0));
-        System.out.println(root.ask(12));
-        System.out.println(root.ask(8));
-        System.out.println(root.ask(15));
+        System.out.println(root.proceedWithInput(-5));
+        System.out.println(root.proceedWithInput(0));
+        System.out.println(root.proceedWithInput(12));
+        System.out.println(root.proceedWithInput(8));
+        System.out.println(root.proceedWithInput(15));
     }
 }

@@ -8,7 +8,7 @@ public class Question<Input, Output> implements DecisionTree<Input, Output> {
     }
 
     @Override
-    public Output ask(Input input) {
+    public Output proceedWithInput(Input input) {
         return null;
     }
 
