@@ -1,21 +1,23 @@
 package com.kchmielewski.sda.decisiontree.example;
 
 import com.kchmielewski.sda.decisiontree.Answer;
+import com.kchmielewski.sda.decisiontree.DecisionTree;
 import com.kchmielewski.sda.decisiontree.Question;
-
-import java.util.function.Predicate;
 
 public class Main {
     public static void main(String[] args) {
-        Question<Integer, String> root = new Question<>(i -> i >= 0);
-        root.no(new Answer<>("Number is negative"));
-        Question<Integer, String> isEven = new Question<>(i -> i %2 == 0);
-        root.yes(isEven);
-        isEven.no(new Answer<>("Number is odd"));
-        Question<Integer, String> isGreaterThan10 = new Question<>(i -> i > 10);
-        isEven.yes(isGreaterThan10);
-        isEven.no(new Answer<>("Number is less or equal to 10"));
-        isEven.yes(new Answer<>("Number is greater than 10"));
+        DecisionTree<Integer, String> root = new Question<>(i -> i >= 0);
+        DecisionTree<Integer, String> isEven = new Question<>(i -> i %2 == 0);
+        DecisionTree<Integer, String> answerIsNegative = new Answer<>("Number is negative");
+        root.setNoDecisionTree(answerIsNegative);
+        root.setYesDecisionTree(isEven);
+
+        DecisionTree<Integer, String> isGreaterThan10 = new Question<>(i -> i > 10);
+        isEven.setNoDecisionTree(new Answer<>("Number is odd"));
+        isEven.setYesDecisionTree(isGreaterThan10);
+
+        isEven.setNoDecisionTree(new Answer<>("Number is less or equal to 10"));
+        isEven.setYesDecisionTree(new Answer<>("Number is greater than 10"));
 
 
         System.out.println(root.ask(-5));

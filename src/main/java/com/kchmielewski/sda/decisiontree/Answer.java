@@ -13,12 +13,12 @@ public class Answer<Input, Output> implements DecisionTree<Input, Output> {
     }
 
     @Override
-    public void yes(DecisionTree<Input, Output> decisionTree) {
+    public void setYesDecisionTree(DecisionTree<Input, Output> decisionTree) {
 
     }
 
     @Override
-    public void no(DecisionTree<Input, Output> decisionTree) {
+    public void setNoDecisionTree(DecisionTree<Input, Output> decisionTree) {
 
     }
 }
